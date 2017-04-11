@@ -1,29 +1,39 @@
-// take user input and count  the words and return the value of the count
-function wordCount(str) {
-	var userInput = [];
-	return userInput.length;
+function wordCount() {
+	var words = $('textarea[name=user-text]').val();
+	var fieldText = words.split(" ");
+	return fieldText.length;
 }
-$('input[name="userinput"]')
 
-.val()
+function uniqueWords() {
+	var words = $('textarea[name=user-text]').val();
+	var fieldText = words.split(" ");
+	var wordCount = [];
+	for (var i = 0; i<fieldText.length; i++){
+		if ($.inArray(fieldText[i], wordCount) === -1) {
+			wordCount.push(fieldText[i]);
+		}
+	}
+	return wordCount.length;
+}
 
-// take array output from .split and check unique words then return the number of unique words
+function averageLength() {
+	var words = $('textarea[name=user-text]').val();
+	var fieldText = words.split(" ");
+	var fieldTotal = fieldText.join("");
+	return fieldTotal.length/fieldText.length;
+}
 
-// store somehwere to tell how many of each ohe there are
-
-// take array and average the length of the words and return the average
-
-// stop button from submitting and refreshing the page, instead having it fire an event to take the input and provide single string
-function handleClick(){
-$(function(){
+function handleForm(){
  	$('button').click(function(event){
  		event.preventDefault();
  		$('dl').removeClass('hidden');
+ 		console.log(wordCount());
+ 		console.log(uniqueWords());
+ 		console.log(averageLength());
  	});
- });
 }
 $(function() {
-  handleClick();
+  handleForm();
 })
 
 
