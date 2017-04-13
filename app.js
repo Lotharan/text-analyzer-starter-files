@@ -23,17 +23,30 @@ function averageLength() {
 	return fieldTotal.length/fieldText.length;
 }
 
+function reportOnText() {
+	var numDistinctWords = uniqueWords();
+	var numTotalWords = wordCount();
+	var averageWordLength = averageLength();
+	var textReport = $('.js-text-report');
+	textReport.find('.js-word-count').text(numTotalWords);
+	textReport.find('.js-unique-word-count').text(numDistinctWords);
+	textReport.find('.js-average-word-length').text(
+		averageWordLength + " characters");
+	textReport.removeClass('hidden');
+}
+
 function handleForm(){
- 	$('button').click(function(event){
- 		event.preventDefault();
- 		$('dl').removeClass('hidden');
- 		console.log(wordCount());
- 		console.log(uniqueWords());
- 		console.log(averageLength());
- 	});
+	$('button').click(function(event){
+		event.preventDefault();
+		$('dl').removeClass('hidden');
+		console.log(wordCount());
+		console.log(uniqueWords());
+		console.log(averageLength());
+		console.log(reportOnText());
+	});
 }
 $(function() {
-  handleForm();
+	handleForm();
 })
 
 
