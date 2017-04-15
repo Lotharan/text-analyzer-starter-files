@@ -27,12 +27,11 @@ function reportOnText() {
 	var numDistinctWords = uniqueWords();
 	var numTotalWords = wordCount();
 	var averageWordLength = averageLength();
-	var textReport = $('.js-text-report');
+	var textReport = $('.js-text-output');
 	textReport.find('.js-word-count').text(numTotalWords);
 	textReport.find('.js-unique-word-count').text(numDistinctWords);
 	textReport.find('.js-average-word-length').text(
 		averageWordLength + " characters");
-	textReport.removeClass('hidden');
 }
 
 function handleForm(){
